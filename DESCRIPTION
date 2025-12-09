@@ -13,4 +13,5 @@ Imports:
     ggplot2,
     ggsurvfit,
     stats,
-    survival
+    survival,
+    labelled
