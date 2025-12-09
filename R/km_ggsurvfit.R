@@ -86,16 +86,16 @@ kmfun_ggsurvfit <- function(mytime,
     }
   }
 
-  km <- formula_str |>
-    stats::as.formula() |>
+  km <- formula_str %>%
+    stats::as.formula() %>%
     ggsurvfit::survfit2(data = mydata)
 
   # Calculate p-value if requested in the setting of delayed entry risk set adjustment
   if(test == 1 & entry == "delayed" & !is.null(group)){
     # to get logrank modified for delayed entry risk set adjustment
-    x <- formula_str |>
-      stats::as.formula() |>
-      survival::coxph(data = mydata) |>
+    x <- formula_str %>%
+      stats::as.formula() %>%
+      survival::coxph(data = mydata) %>%
       summary()
     print(x)
     print(x$sctest[["pvalue"]])
@@ -105,7 +105,7 @@ kmfun_ggsurvfit <- function(mytime,
     }
   }
 
-  survplot <- km |>
+  survplot <- km %>%
     ggsurvfit::ggsurvfit(linewidth = 1.25,
               linetype_aes = set_linetype_aes) +
     {if(conf.int.set == TRUE) ggsurvfit::add_confidence_interval()} +
