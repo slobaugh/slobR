@@ -15,4 +15,5 @@ Imports:
     stats,
     survival,
     labelled,
-    magrittr
+    magrittr,
+    rlang

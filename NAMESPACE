@@ -2,4 +2,6 @@
 
 export("%>%")
 export(kmfun_ggsurvfit)
+export(viz_x_by_y)
 importFrom(magrittr,"%>%")
+importFrom(rlang,.data)
