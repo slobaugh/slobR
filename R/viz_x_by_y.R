@@ -16,14 +16,14 @@ viz_x_by_y <- function(mydata,
                        facet_grid_col_var) {
 
   plot <- mydata %>%
-    ggplot2::ggplot(ggplot2::aes(x = mydata[[x]])) +
+    ggplot2::ggplot(ggplot2::aes(x = .data[[x]])) +
     {
-      if (is.numeric(mydata[[x]]))
+      if (is.numeric(.data[[x]]))
         ggplot2::geom_histogram()
       else
         ggplot2::geom_bar()
     } +
-    ggplot2::facet_grid(cols = ggplot2::vars(mydata[[facet_grid_col_var]])) +
+    ggplot2::facet_grid(cols = ggplot2::vars(.data[[facet_grid_col_var]])) +
     ggplot2::labs(y = "Count", title = paste0({
       if (!is.null(labelled::var_label(mydata[[x]])))
         labelled::var_label(mydata[[x]])
