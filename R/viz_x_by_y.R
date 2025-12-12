@@ -18,7 +18,7 @@ viz_x_by_y <- function(mydata,
   plot <- mydata %>%
     ggplot2::ggplot(ggplot2::aes(x = .data[[x]])) +
     {
-      if (is.numeric(.data[[x]]))
+      if (is.numeric(mydata[[x]]))
         ggplot2::geom_histogram()
       else
         ggplot2::geom_bar()
